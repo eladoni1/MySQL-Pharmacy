@@ -1,0 +1,144 @@
+.red {
+    border: 1px solid red;
+    color: red;
+}
+.font1{
+    font-family: 'Quicksand', sans-serif;
+
+}
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+.content-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.7em;
+
+}
+
+h2{
+    color: #009879;
+}
+
+
+thead{
+    background: cornflowerblue;
+}
+
+tr{
+    text-align: center;
+}
+
+.green {
+    border: 1px solid green;
+}
+
+.login-left {
+    background-image: url("../images/background.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
+    opacity: 0.9;
+    height: 600px;
+    border-radius: 3px;
+}
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: white;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.invis {
+    display: none;
+}
+
+.patientHomepage{
+    background-image: url("../images/295162-medicine-wallpaper-immagini.jpg");
+}
+
+.doctorHomepage{
+    background-image: url("../images/wallpaperflare.com_wallpaper.jpg");
+
+}
+
+.bodyLogIn{
+    background-image: url("../images/364862-pharmaceutical-wallpaper-amco.jpg");
+
+}
+.button{
+    background-color:darkgray;
+    border: none;
+    color: black;
+    height: 40px;
+    width: 500px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.button:hover {
+    background-color: dimgray;
+    color: white;
+    border: 2px solid black;
+}
+.newReview
+{
+    background: url("../images/buyPage.jpg");
+    background-size: auto;
+}
+
+input {
+    font-size:12pt;
+    height:40px;
+    width:auto;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}
+select{
+    font-size:11pt;
+    height:40px;
+    width:auto;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+}

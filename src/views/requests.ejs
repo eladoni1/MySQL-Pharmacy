@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body class="patientHomepage">
+<div>
+    <h1 style="color: #009879">Requests for <%= user.firstName + " " + user.lastName %></h1>
+    <!-- NEED TO IMPLEMENT - show reviews for drug -->
+    <table id="table" class="styled-table">
+        <thead>
+        <tr>
+            <th>Drug Name</th>
+            <th>Doctor Name</th>
+            <th>Status</th>
+            <th>Requested On</th>
+            <th>Serial Number</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <% printRequest.forEach(function(request) { %>
+        <tr>
+            <td><%= request.name %></td>
+            <td><%= request.firstName + " " + request.lastName %></td>
+            <% if (request.status == null) { %>
+                <td>Waiting</td>
+            <% } %>
+            <% if (request.status === 1) { %>
+                <td>Approved</td>
+            <% } %>
+            <% if (request.status === 0) { %>
+                <td>Denied</td>
+            <% } %>
+            <td><%= request.date.getUTCFullYear() + "/" +(request.date.getUTCMonth()+1) + "/" + request.date.getDate() %></td>
+            <td><%= request.serialNumber %></td>
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+    <div>
+
+        <button class="button" onclick="window.location.href='/new_request'">Make a new request</button>
+    </div>
+    <div>
+        <button class="button" onclick="window.location.href='/'">To Home Page</button>
+    </div>
+    <div>
+        <form method="POST" action="/logout">
+            <button type="submit" class="btn btn-primary">Log out</button>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="doctorHomepage">
+<div>
+    <h2>Patient's History</h2>
+    <table id="table" class="styled-table">
+        <thead>
+        <tr>
+            <th>Drug name</th>
+            <th>Miligram</th>
+            <th>Quantity</th>
+            <th>Used</th>
+            <th>Date given</th>
+            <th>Expiration date</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <% prescriptions.forEach(function(drug) { %>
+        <tr>
+            <td><%=drug.name%></td>
+            <td><%=drug.mg%></td>
+            <td><%=drug.quantity%></td>
+            <td><%=drug.used%></td>
+            <td><%=drug.date.getUTCFullYear() + "/" +(drug.date.getUTCMonth()+1) + "/" + drug.date.getDate()%></td>
+            <td><%=drug.expDate.getUTCFullYear() + "/" +(drug.expDate.getUTCMonth()+1) + "/" + drug.expDate.getDate()%></td>
+
+        </tr>
+
+        <% }) %>
+        </tbody>
+    </table>
+
+    <form method="POST" action="/logout">
+        <button type="submit" class="btn btn-primary">Log out</button>
+    </form>
+
+</div>
+</body>
+</html>

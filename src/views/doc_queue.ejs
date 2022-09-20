@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</head>
+<body class="doctorHomepage">
+<script>
+    function myFunction(val1, val2, val3) {
+        document.getElementById("invis").style.display = "block";
+        document.getElementById("serialNumber").value = val1
+        document.getElementById("patientId").value = val2
+        document.getElementById("drugId").value = val3
+    }
+</script>
+<script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+
+
+<div>
+    <h1 style="color: #009879">Your Queue:</h1>
+    <table id="table" class="styled-table">
+        <thead>
+        <tr>
+            <th>Patient Name</th>
+            <th>Patient ID</th>
+            <th>Drug Name</th>
+            <th>Date given</th>
+            <th>Patient Medical History</th>
+            <th>Approve / Deny</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <% requests.forEach(function(request) { %>
+        <tr>
+            <td><%= request.firstName + " " + request.lastName %></td>
+            <td><%= request.patient_id %></td>
+            <td><%= request.name %></td>
+            <td><%= request.date.getUTCFullYear() + "/" +(request.date.getUTCMonth() + 1) + "/" + request.date.getDate() %></td>
+            <td>
+                <button onclick="window.open('/patient_history/' + '<%= request.patient_id %>')">Show</button>
+            </td>
+            <td>
+                <button onclick="myFunction('<%= request.serialNumber %>', '<%= request.patient_id %>', '<%= request.drug_id %>')">
+                    <i class="fas fa-thumbs-up"></i>
+                </button>
+                <button onclick="window.location.href='/deny/' + '<%= request.serialNumber %>'"><i
+                            class="fas fa-thumbs-down"></i></button>
+            </td>
+        </tr>
+
+        <% }) %>
+        </tbody>
+    </table>
+
+    <form id="invis" class="invis" action="/doc_queue" method="POST" style="font-size: x-large">
+        <div>
+            <label for="expDate">Expire Date</label>
+            <input type="date" name="expDate" id="expDate" placeholder="example: 2018-12-31" required>
+            <!--        </div><div>-->
+            <label for="miligram">Miligram</label>
+            <input type="number" name="miligram" id="miligram" min="1" placeholder="Enter miligram.." required>
+            <!--</div><div>-->
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" min="1" placeholder="Enter quantity.." required>
+            <!--</div><div>-->
+            <label for="serialNumber">SN</label>
+            <input type="number" id="serialNumber" name="serialNumber" readonly>
+        </div>
+        <div>
+            <label for="patientId">Patient ID</label>
+            <input type="number" id="patientId" name="patientId" readonly>
+            <!--</div><div>-->
+            <label for="drugId">Drug ID</label>
+            <input type="number" id="drugId" name="drugId" readonly>
+        </div>
+        <div>
+            <button class="button" type="submit">Approve</button>
+        </div>
+    </form>
+    <div>
+        <button class="button" onclick="window.location.href='/'">To Home Page</button>
+    </div>
+    <div>
+        <form method="POST" action="/logout">
+            <button type="submit" class="btn btn-primary">Log out</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

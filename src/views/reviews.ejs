@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="patientHomepage">
+<script>
+    var elad = 20
+</script>
+<script>
+
+    let showMore = function() {
+        elad = elad + 50
+        let my_string = 'tr:lt(' + elad.toString() + ')'
+        $(".table_body").find(my_string).show()
+    }
+</script>
+<div>
+    <h1 style="color: #009879"><% if (Object.keys(reviews).length === 0) { %>
+            No reviews for this drug.
+        <% } %>
+        <% if (Object.keys(reviews).length !== 0) { %>
+            Reviews for <%= reviews[0].drugName %>
+            <br><br>
+            <h3>Average rating is <%= reviews[0].avg_rating %></h3>
+        <% } %>
+    </h1>
+
+
+    <table id="table" class="styled-table">
+
+        <thead>
+        <tr>
+            <th>Condition</th>
+            <th>Review</th>
+            <th>User Rating</th>
+            <th>Review Date</th>
+        </tr>
+        </thead>
+        <tbody class="table_body">
+        <% reviews.forEach(function(review) { %>
+        <tr>
+            <td><%=review.revCondition%></td>
+            <td><%=review.the_review%></td>
+            <td><%=review.user_rating%></td>
+            <td><%=review.date.getUTCFullYear() + "/" +(review.date.getUTCMonth()+1) + "/" + review.date.getDate()%></td>
+        </tr>
+        <% }) %>
+        <script>
+            my_string = 'tr:gt(' + elad.toString() + ')'
+            $(".table_body").find(my_string).hide()
+        </script>
+        </tbody>
+    </table>
+
+</div>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <button class="button" style="position: center; width: 227px" onclick="showMore()">SHOW ME MORE</button>
+</div>
+</body>
+</html>

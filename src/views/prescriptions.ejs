@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body class="patientHomepage">
+<div>
+    <h1 style="color:#009879;">Prescriptions for <%= user.firstName + " " + user.lastName %></h1>
+    <table id="table" class="styled-table">
+        <thead>
+        <tr>
+            <th>Drug name</th>
+            <th>Milligram</th>
+            <th>Quantity</th>
+            <th>Used</th>
+            <th>Date given</th>
+            <th>Expiration date</th>
+            <th>Reviews</th>
+            <th>Purchase</th>
+            <th>Add Review</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <% print.forEach(function(drug) { %>
+        <tr>
+            <td><%= drug.name %></td>
+            <td><%= drug.mg %></td>
+            <td><%= drug.quantity %></td>
+            <td><%= drug.used %></td>
+            <td><%= drug.date.getUTCFullYear() + "/" +(drug.date.getUTCMonth() + 1) + "/" + drug.date.getDate() %></td>
+            <td><%= drug.expDate.getUTCFullYear() + "/" +(drug.expDate.getUTCMonth() + 1) + "/" + drug.expDate.getDate() %></td>
+            <td>
+                <button onclick="window.open('/reviews/' + '<%= drug.drugID %>')">Reviews</button>
+            </td>
+            <% let today = new Date() %>
+            <% if (drug.quantity - drug.used > 0 && drug.expDate >= today) { %>
+            <td>
+                <button onclick="window.open('/purchase/' + '<%= drug.prescriptionID %>')">To Purchase Page</button>
+            </td>
+            <% } else { %>
+                <td>CANNOT PURCHASE</td>
+            <% } %>
+            <% if (drug.used > 0) { %>
+            <td>
+                <button onclick="window.open('/new_review/' + '<%= drug.drugID %>')">+</button>
+            </td>
+            <% } else { %>
+                <td>CANNOT ADD REVIEW</td>
+            <% } %>
+
+        </tr>
+
+        <% }) %>
+        </tbody>
+    </table>
+<!--    <div>-->
+<!--        <button class="button" onclick="window.location.href='/'">Homepage</button>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <button class="button" onclick="window.location.href='/requests'">My requests</button>-->
+<!--    </div>-->
+    <div>
+        <button class="button" onclick="window.location.href='/'">To Home Page</button>
+    </div>
+    <div>
+        <form method="POST" action="/logout">
+            <button type="submit" class="btn btn-primary">Log out</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

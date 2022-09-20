@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+
+
+</head>
+<body class="patientHomepage" style="text-align: center; font-size: xx-large">
+<div>
+    <h2>Make a new request for <%= user.firstName + " " + user.lastName %></h2>
+    <!-- NEED TO IMPLEMENT - show reviews for drug -->
+    <form method="POST" action="/new_request">
+        <div class="form-check">
+            <label for="drugNames">Drug name</label>
+            <select name="drugNames" id="drugNames" required="required">
+                <option value="">--Please choose an option--</option>
+                <% drugNames.forEach(function(name_row) { %>
+                    <option value="<%= name_row.id %>">
+                        <%= name_row.name + " (given rating: " + name_row.rating + ")" %>
+                    </option>
+                <% }) %>
+            </select>
+                <button class="button" style="height: 40px;width: 250px;" onclick="window.open('/reviews/' + document.getElementById('drugNames').value,'_blank')">Read Reviews</button> <!-- ADD URL PARAMETER-->
+        </div>
+        <div class="form-check">
+            <label for="doctorNames">Doctor name</label>
+            <select name="doctorNames" id="doctorNames" required="required">
+                <option value="">--Please choose an option--</option>
+                <% docNames.forEach(function(name_row) { %>
+                    <option value="<%= name_row.id %>">
+                        <%= name_row.firstName + " " + name_row.lastName %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        <button class="button" type="submit">Post new request</button>
+    </form>
+    <div>
+        <button class="button" onclick="history.back()">Back</button>
+    </div>
+
+</div>
+
+</body>
+</html>

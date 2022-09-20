@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+
+
+</head>
+<body>
+<div>
+    <h2>Purchase for <%= iteration.name %></h2>
+    <form id="form_purchase" method="POST" action="/purchase/<%= prescriptionID %>">
+        <div class="form-check">
+            <label for="unitsToBuy">Quantity</label>
+            <select name="unitsToBuy" id="unitsToBuy">
+                <option value="0">--Please choose quantity for purchase--</option>
+                <% let today = new Date() %>
+                <% for (let i = 1; i <= iteration.available && iteration.expDate >= today; i++) { %>
+                    <option value="<%= i %>">
+                        <%= i %>
+                    </option>
+                <% } %>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">PURCHASE</button>
+        </div>
+    </form>
+
+
+</div>
+</body>
+</html>

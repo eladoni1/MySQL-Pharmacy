@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+
+</head>
+<body class="doctorHomepage" style="text-align: center; font-size: xx-large">
+<div>
+    <h1 style="color: blue">New Prescription</h1>
+    <form action="/manual_pres" method="POST">
+        <div>
+            <label for="expDate">Expire Date</label>
+            <input type="date" name="expDate" id="expDate" placeholder="example: 2018-12-31" required>
+        </div>
+        <div>
+            <label for="miligram">Milligram</label>
+            <input type="number" name="miligram" id="miligram" min="1" placeholder="Enter miligram.." required>
+        </div>
+        <div>
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" min="1" placeholder="Enter quantity.." required>
+        </div>
+        <div>
+            <label for="patientId">Patient Name / ID</label>
+            <select name="patientId" id="patientId">
+                <option value="">--Please choose an option--</option>
+                <% patients.forEach(function(patient) { %>
+                    <option value="<%= patient.id %>">
+                        <%= patient.firstName + " " + patient.lastName + " / " + patient.id %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="drugId">Drug Name</label>
+            <select name="drugId" id="drugId">
+                <option value="">--Please choose an option--</option>
+                <!-- Val will be SN but presentation - Drug name-->
+                <% drugs.forEach(function(drug) { %>
+                    <option value="<%= drug.id %>">
+                        <%= drug.name %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <button class="button" type="submit">Approve</button>
+        </div>
+    </form>
+    <div>
+        <button class="button" onclick="window.location.href='/'">To Home Page</button>
+    </div>
+
+</div>
+</body>
+</html>
