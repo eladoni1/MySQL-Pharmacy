@@ -104,13 +104,13 @@ https://drive.google.com/drive/folders/1GorZrsNVxr52MgU1N6uU9VomZ_45J93t?usp=sha
 ![](https://github.com/eladoni1/MySQL-Pharmacy/blob/main/png/new%20review%20screen.png?raw=true)
 
 
-**Purchasing a prescribed medicine - **
+**Purchasing a prescribed medicine -**
 
 
 ![](https://github.com/eladoni1/MySQL-Pharmacy/blob/main/png/purchase%20screen.png?raw=true)
 
 
-**Check a drug's reviews (given by other patients) - **
+**Check a drug's reviews (given by other patients) -**
 
 
 ![](https://github.com/eladoni1/MySQL-Pharmacy/blob/main/png/reviews%20screen.png?raw=true)
@@ -162,7 +162,7 @@ https://drive.google.com/drive/folders/1GorZrsNVxr52MgU1N6uU9VomZ_45J93t?usp=sha
 
 *Lastly, we can check the patient's medical history. It is crucial for us to do so to not mix drugs which are prohibited to and known to cause trouble.*
 
-**Showing medical history - **
+**Showing medical history -**
 
 
 ![](https://github.com/eladoni1/MySQL-Pharmacy/blob/main/png/patient%20history.png?raw=true)
