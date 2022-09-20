@@ -8,7 +8,7 @@ How to run :
 
 2. With MySQL database, create the following tables: ..
 
-3. Create a .env file in the root folder, you could potentially use the same .env file, but you'll have to change parameters like database name, port, username, password etc.
+3. Create a .env file in the root folder, copy the data from env.txt, but you'll have to change parameters like database name, port, username, password etc.
 
 4. Run "npm install" to install all packages in package.json file.
 
