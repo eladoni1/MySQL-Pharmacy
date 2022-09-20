@@ -13,3 +13,7 @@ How to run :
 4. Run "npm install" to install all packages in package.json file.
 
 5. Run "npm start " to start the project
+
+
+You could download example CSV files to fill your reviews, drugs, etc. :
+https://drive.google.com/drive/folders/1GorZrsNVxr52MgU1N6uU9VomZ_45J93t?usp=sharing
