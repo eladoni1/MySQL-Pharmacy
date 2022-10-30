@@ -168,4 +168,4 @@ https://drive.google.com/drive/folders/1GorZrsNVxr52MgU1N6uU9VomZ_45J93t?usp=sha
 ![](https://github.com/eladoni1/MySQL-Pharmacy/blob/main/png/patient%20history.png?raw=true)
 
 
-**Hope you have a __great time__ using our app! thanks for reading~**
+**Hope you have a __great time__ using our app!**
